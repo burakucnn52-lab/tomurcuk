@@ -1,7 +1,7 @@
 import { bugunkuSozuGetir } from "@/data/karakter-sozleri";
+import { KarakterOdasi } from "@/components/KarakterOdasi";
 
 export default function HomePage() {
-  // Her karakterin bugünkü sözü
   const defneSozu = bugunkuSozuGetir('defne');
   const zeynaSozu = bugunkuSozuGetir('zeyna');
   const balimSozu = bugunkuSozuGetir('balim');
@@ -10,25 +10,21 @@ export default function HomePage() {
     <main className="min-h-screen">
       
       {/* HERO BÖLÜMÜ */}
-      <section className="flex items-center justify-center p-8 pt-16 pb-24">
+      <section className="flex items-center justify-center px-6 pt-16 pb-20">
         <div className="max-w-3xl w-full text-center">
           
-          {/* Logo / Emoji */}
           <div className="text-8xl mb-6 animate-bounce">
             🌱
           </div>
           
-          {/* Başlık */}
           <h1 className="text-5xl md:text-7xl font-bold text-tomurcuk-700 mb-4">
             Tomurcuk
           </h1>
           
-          {/* Alt başlık */}
           <p className="text-xl md:text-2xl text-tomurcuk-600 mb-4 font-medium">
             Alışkanlık kazan, tomurcuklan
           </p>
           
-          {/* Açıklama */}
           <p className="text-gray-600 mb-8 leading-relaxed text-lg">
             Bilimsel alışkanlık takibi ile hedeflerine ulaş,
             gerçek dünyada fidan diktir, sevdiklerine tohum gönder.
@@ -38,7 +34,6 @@ export default function HomePage() {
             </span>
           </p>
           
-          {/* CTA Butonu */}
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
             <button className="bg-tomurcuk-500 hover:bg-tomurcuk-600 text-white font-medium py-3 px-8 rounded-xl transition-colors shadow-md text-lg">
               🌱 Hemen Başla
@@ -56,18 +51,20 @@ export default function HomePage() {
       </section>
 
       {/* KARAKTER TANITIM BÖLÜMÜ */}
-      <section className="bg-white py-20 px-8">
+      <section className="bg-white py-20 px-6">
         <div className="max-w-6xl mx-auto">
           
           {/* Bölüm başlığı */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-14">
             <h2 className="text-4xl md:text-5xl font-bold text-tomurcuk-700 mb-4">
               🎭 Rehberini Seç
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-2">
               Tomurcuk'ta yalnız değilsin. Sana yolculuğunda eşlik edecek 
               <span className="text-tomurcuk-600 font-semibold"> 3 karakter</span> arasından birini seçeceksin.
-              Her biri farklı bir hayat felsefesiyle sana yol gösterecek.
+            </p>
+            <p className="text-sm text-gray-500">
+              💡 Karakterlerin odaları saate göre değişir. Şu an ne yapıyorlar? 👇
             </p>
           </div>
           
@@ -75,137 +72,147 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-6">
             
             {/* 🌱 DEFNE */}
-            <div className="bg-gradient-to-br from-green-50 to-yellow-50 rounded-3xl p-8 border-2 border-green-200 hover:border-green-400 transition-all hover:shadow-xl hover:-translate-y-1">
-              <div className="text-6xl mb-4 text-center">🌱</div>
+            <div className="bg-white rounded-3xl overflow-hidden border-2 border-green-200 hover:border-green-400 transition-all hover:shadow-2xl hover:-translate-y-1">
               
-              <h3 className="text-2xl font-bold text-green-700 text-center mb-1">
-                DEFNE
-              </h3>
-              <p className="text-center text-green-600 font-medium mb-4">
-                Sabırlı Rehberin
-              </p>
+              {/* Karakter Odası */}
+              <KarakterOdasi karakter="defne" />
               
-              <p className="text-sm text-gray-600 italic text-center mb-6 min-h-[3rem]">
-                "Küçük adımlar, büyük yolculuklar yapar."
-              </p>
-              
-              <div className="border-t border-green-200 pt-4 mb-4">
-                <p className="text-xs font-semibold text-green-700 mb-2 uppercase">
-                  Kişiliği
+              {/* İçerik */}
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-green-700 text-center mb-1">
+                  DEFNE
+                </h3>
+                <p className="text-center text-green-600 font-medium mb-4 text-sm">
+                  Sabırlı Rehberin
                 </p>
-                <p className="text-sm text-gray-700">
-                  Nazik, cesaretlendirici, sabırlı. Sana asla baskı yapmaz.
-                  Mükemmelliği değil, ilerlemeyi kutlar.
+                
+                <p className="text-sm text-gray-600 italic text-center mb-5">
+                  "Küçük adımlar, büyük yolculuklar yapar."
                 </p>
-              </div>
-              
-              <div className="border-t border-green-200 pt-4 mb-4">
-                <p className="text-xs font-semibold text-green-700 mb-2 uppercase">
-                  Kimin İçin?
-                </p>
-                <p className="text-sm text-gray-700">
-                  Yeni başlayanlar, mükemmeliyetçi kişiler, nazik motivasyon 
-                  isteyenler.
-                </p>
-              </div>
-              
-              <div className="bg-green-100 rounded-xl p-4">
-                <p className="text-xs font-semibold text-green-700 mb-2">
-                  🌟 BUGÜNKÜ SÖZÜM:
-                </p>
-                <p className="text-sm text-gray-800 italic">
-                  "{defneSozu.soz}"
-                </p>
+                
+                <div className="border-t border-green-100 pt-4 mb-4">
+                  <p className="text-xs font-semibold text-green-700 mb-1 uppercase">
+                    Kişilik
+                  </p>
+                  <p className="text-sm text-gray-700">
+                    Nazik, cesaretlendirici, sabırlı. Mükemmelliği değil, 
+                    ilerlemeyi kutlar.
+                  </p>
+                </div>
+                
+                <div className="border-t border-green-100 pt-4 mb-4">
+                  <p className="text-xs font-semibold text-green-700 mb-1 uppercase">
+                    Kimin İçin?
+                  </p>
+                  <p className="text-sm text-gray-700">
+                    Yeni başlayanlar, mükemmeliyetçi kişiler, nazik motivasyon 
+                    isteyenler.
+                  </p>
+                </div>
+                
+                <div className="bg-green-50 rounded-xl p-4 border border-green-100">
+                  <p className="text-xs font-semibold text-green-700 mb-2">
+                    🌟 BUGÜNKÜ SÖZÜM:
+                  </p>
+                  <p className="text-sm text-gray-800 italic leading-relaxed">
+                    "{defneSozu.soz}"
+                  </p>
+                </div>
               </div>
             </div>
             
             {/* 🌸 ZEYNA */}
-            <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-3xl p-8 border-2 border-pink-200 hover:border-pink-400 transition-all hover:shadow-xl hover:-translate-y-1">
-              <div className="text-6xl mb-4 text-center">🌸</div>
+            <div className="bg-white rounded-3xl overflow-hidden border-2 border-pink-200 hover:border-pink-400 transition-all hover:shadow-2xl hover:-translate-y-1">
               
-              <h3 className="text-2xl font-bold text-pink-700 text-center mb-1">
-                ZEYNA
-              </h3>
-              <p className="text-center text-pink-600 font-medium mb-4">
-                Enerjik Şampiyonun
-              </p>
+              <KarakterOdasi karakter="zeyna" />
               
-              <p className="text-sm text-gray-600 italic text-center mb-6 min-h-[3rem]">
-                "Bugün değişmek için mükemmel bir gün!"
-              </p>
-              
-              <div className="border-t border-pink-200 pt-4 mb-4">
-                <p className="text-xs font-semibold text-pink-700 mb-2 uppercase">
-                  Kişiliği
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-pink-700 text-center mb-1">
+                  ZEYNA
+                </h3>
+                <p className="text-center text-pink-600 font-medium mb-4 text-sm">
+                  Enerjik Şampiyonun
                 </p>
-                <p className="text-sm text-gray-700">
-                  Enerjik, coşkulu, motivasyoncu. Sana "yapabilirsin!" der,
-                  her başarını kutlar. Hedef odaklıdır.
+                
+                <p className="text-sm text-gray-600 italic text-center mb-5">
+                  "Bugün değişmek için mükemmel bir gün!"
                 </p>
-              </div>
-              
-              <div className="border-t border-pink-200 pt-4 mb-4">
-                <p className="text-xs font-semibold text-pink-700 mb-2 uppercase">
-                  Kimin İçin?
-                </p>
-                <p className="text-sm text-gray-700">
-                  Rekabetçi, hedef odaklı, sosyal medyayı seven, enerji 
-                  arayan kişiler.
-                </p>
-              </div>
-              
-              <div className="bg-pink-100 rounded-xl p-4">
-                <p className="text-xs font-semibold text-pink-700 mb-2">
-                  🌟 BUGÜNKÜ SÖZÜM:
-                </p>
-                <p className="text-sm text-gray-800 italic">
-                  "{zeynaSozu.soz}"
-                </p>
+                
+                <div className="border-t border-pink-100 pt-4 mb-4">
+                  <p className="text-xs font-semibold text-pink-700 mb-1 uppercase">
+                    Kişilik
+                  </p>
+                  <p className="text-sm text-gray-700">
+                    Enerjik, coşkulu, motivasyoncu. Her başarını kutlar,
+                    hedef odaklıdır.
+                  </p>
+                </div>
+                
+                <div className="border-t border-pink-100 pt-4 mb-4">
+                  <p className="text-xs font-semibold text-pink-700 mb-1 uppercase">
+                    Kimin İçin?
+                  </p>
+                  <p className="text-sm text-gray-700">
+                    Rekabetçi, hedef odaklı, sosyal, enerji arayan kişiler.
+                  </p>
+                </div>
+                
+                <div className="bg-pink-50 rounded-xl p-4 border border-pink-100">
+                  <p className="text-xs font-semibold text-pink-700 mb-2">
+                    🌟 BUGÜNKÜ SÖZÜM:
+                  </p>
+                  <p className="text-sm text-gray-800 italic leading-relaxed">
+                    "{zeynaSozu.soz}"
+                  </p>
+                </div>
               </div>
             </div>
             
             {/* 🌳 BALIM */}
-            <div className="bg-gradient-to-br from-emerald-50 to-amber-50 rounded-3xl p-8 border-2 border-emerald-200 hover:border-emerald-400 transition-all hover:shadow-xl hover:-translate-y-1">
-              <div className="text-6xl mb-4 text-center">🌳</div>
+            <div className="bg-white rounded-3xl overflow-hidden border-2 border-emerald-200 hover:border-emerald-400 transition-all hover:shadow-2xl hover:-translate-y-1">
               
-              <h3 className="text-2xl font-bold text-emerald-800 text-center mb-1">
-                BALIM
-              </h3>
-              <p className="text-center text-emerald-700 font-medium mb-4">
-                Bilge Meşen
-              </p>
+              <KarakterOdasi karakter="balim" />
               
-              <p className="text-sm text-gray-600 italic text-center mb-6 min-h-[3rem]">
-                "Ağaç, rüzgarda eğilir ama kırılmaz."
-              </p>
-              
-              <div className="border-t border-emerald-200 pt-4 mb-4">
-                <p className="text-xs font-semibold text-emerald-800 mb-2 uppercase">
-                  Kişiliği
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-emerald-800 text-center mb-1">
+                  BALIM
+                </h3>
+                <p className="text-center text-emerald-700 font-medium mb-4 text-sm">
+                  Bilge Meşen
                 </p>
-                <p className="text-sm text-gray-700">
-                  Bilge, sakin, derin. Felsefe ve alıntılarla konuşur. 
-                  Uzun vadeli düşünmeyi öğretir.
+                
+                <p className="text-sm text-gray-600 italic text-center mb-5">
+                  "Ağaç, rüzgarda eğilir ama kırılmaz."
                 </p>
-              </div>
-              
-              <div className="border-t border-emerald-200 pt-4 mb-4">
-                <p className="text-xs font-semibold text-emerald-800 mb-2 uppercase">
-                  Kimin İçin?
-                </p>
-                <p className="text-sm text-gray-700">
-                  Derin düşünenler, zor alışkanlıklarla mücadele edenler, 
-                  meditasyon meraklıları.
-                </p>
-              </div>
-              
-              <div className="bg-emerald-100 rounded-xl p-4">
-                <p className="text-xs font-semibold text-emerald-800 mb-2">
-                  🌟 BUGÜNKÜ SÖZÜM:
-                </p>
-                <p className="text-sm text-gray-800 italic">
-                  "{balimSozu.soz}"
-                </p>
+                
+                <div className="border-t border-emerald-100 pt-4 mb-4">
+                  <p className="text-xs font-semibold text-emerald-800 mb-1 uppercase">
+                    Kişilik
+                  </p>
+                  <p className="text-sm text-gray-700">
+                    Bilge, sakin, derin. Felsefe ve alıntılarla konuşur. 
+                    Uzun vadeli düşünür.
+                  </p>
+                </div>
+                
+                <div className="border-t border-emerald-100 pt-4 mb-4">
+                  <p className="text-xs font-semibold text-emerald-800 mb-1 uppercase">
+                    Kimin İçin?
+                  </p>
+                  <p className="text-sm text-gray-700">
+                    Derin düşünenler, zor alışkanlıklarla mücadele edenler, 
+                    meditasyon meraklıları.
+                  </p>
+                </div>
+                
+                <div className="bg-emerald-50 rounded-xl p-4 border border-emerald-100">
+                  <p className="text-xs font-semibold text-emerald-800 mb-2">
+                    🌟 BUGÜNKÜ SÖZÜM:
+                  </p>
+                  <p className="text-sm text-gray-800 italic leading-relaxed">
+                    "{balimSozu.soz}"
+                  </p>
+                </div>
               </div>
             </div>
             
@@ -222,10 +229,10 @@ export default function HomePage() {
       </section>
 
       {/* ÖZELLİKLER BÖLÜMÜ */}
-      <section className="bg-tomurcuk-50 py-20 px-8">
+      <section className="bg-tomurcuk-50 py-20 px-6">
         <div className="max-w-6xl mx-auto">
           
-          <div className="text-center mb-16">
+          <div className="text-center mb-14">
             <h2 className="text-4xl md:text-5xl font-bold text-tomurcuk-700 mb-4">
               ✨ Neden Tomurcuk?
             </h2>
@@ -235,7 +242,7 @@ export default function HomePage() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-tomurcuk-100 text-center">
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-tomurcuk-100 text-center hover:shadow-lg transition-shadow">
               <div className="text-5xl mb-4">📊</div>
               <h3 className="font-bold text-xl text-tomurcuk-700 mb-3">
                 Bilimsel Takip
@@ -246,7 +253,7 @@ export default function HomePage() {
               </p>
             </div>
             
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-tomurcuk-100 text-center">
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-tomurcuk-100 text-center hover:shadow-lg transition-shadow">
               <div className="text-5xl mb-4">🌳</div>
               <h3 className="font-bold text-xl text-tomurcuk-700 mb-3">
                 Fidan Dik
@@ -257,7 +264,7 @@ export default function HomePage() {
               </p>
             </div>
             
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-tomurcuk-100 text-center">
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-tomurcuk-100 text-center hover:shadow-lg transition-shadow">
               <div className="text-5xl mb-4">🎁</div>
               <h3 className="font-bold text-xl text-tomurcuk-700 mb-3">
                 Hediye Gönder
@@ -273,7 +280,7 @@ export default function HomePage() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-tomurcuk-800 text-white py-12 px-8">
+      <footer className="bg-tomurcuk-800 text-white py-12 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <div className="text-4xl mb-4">🌱</div>
           <h3 className="text-2xl font-bold mb-2">Tomurcuk</h3>
