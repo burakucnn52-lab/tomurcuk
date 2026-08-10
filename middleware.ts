@@ -1,7 +1,7 @@
 // middleware.ts
 // 🔒 Sayfa erişim kontrolü
 
-import { createServerClient } from '@supabase/ssr';
+import { createServerClient, type CookieOptions } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
 export async function middleware(request: NextRequest) {
@@ -17,7 +17,7 @@ export async function middleware(request: NextRequest) {
         getAll() {
           return request.cookies.getAll();
         },
-        setAll(cookiesToSet) {
+        setAll(cookiesToSet: { name: string; value: string; options: CookieOptions }[]) {
           cookiesToSet.forEach(({ name, value }) =>
             request.cookies.set(name, value)
           );
@@ -38,7 +38,7 @@ export async function middleware(request: NextRequest) {
 
   const pathname = request.nextUrl.pathname;
 
-  // Korumalı sayfalar
+  // Korumalı sayfalar (giriş gerekli)
   const protectedRoutes = ['/dashboard', '/onboarding'];
   const authRoutes = ['/login', '/register'];
 
@@ -64,13 +64,6 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    /*
-     * Şu sayfalar hariç her sayfada çalış:
-     * - _next/static (statik dosyalar)
-     * - _next/image (görsel optimizasyonu)
-     * - favicon.ico
-     * - public dosyalar
-     */
     '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
 };
